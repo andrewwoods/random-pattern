@@ -55,16 +55,6 @@ class RandomPatternTest extends TestCase
         $this->assertTrue($result);
     }
 
-    public function testIsTokenValidWithCharacterX()
-    {
-        $token = 'X';
-
-        $randomPattern = new RandomPattern();
-        $result = $randomPattern->isTokenValid($token);
-
-        $this->assertTrue($result);
-    }
-
     public function testIsPatternValidWithOCharacters()
     {
         $pattern = '';

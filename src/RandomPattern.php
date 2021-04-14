@@ -47,10 +47,6 @@ class RandomPattern
             return true;
         }
 
-        if ($token === 'X') {
-            return true;
-        }
-
         return false;
     }
 
