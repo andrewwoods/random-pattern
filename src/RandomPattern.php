@@ -75,4 +75,43 @@ class RandomPattern
         return true;
     }
 
+    /**
+     * Provide a single method to create a random value based on a pattern
+     *
+     * Build up a string of randomized values based on a user-specified patterh.
+     * This acts as a simple interface for generating the random string.
+     *
+     * @param $pattern
+     *
+     * @return string
+     *
+     * @throws \InvalidArgumentException|\Exception
+     */
+    public function generate($pattern)
+    {
+        if ( ! $this->isPatternValid($pattern)) {
+            throw new \InvalidArgumentException('The pattern you used is not valid');
+        }
+
+        $output = '';
+
+        $tokens = str_split($pattern);
+        foreach ($tokens as $token) {
+            if ($token === 'D') {
+                $output .= $this->generateDigit();
+            }
+        }
+
+        return $output;
+    }
+
+    /**
+     * @return int
+     * @throws \Exception
+     */
+    public function generateDigit(): int
+    {
+        return random_int(0, 9);
+    }
+
 }

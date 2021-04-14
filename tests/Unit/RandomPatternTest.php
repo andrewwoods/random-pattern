@@ -117,4 +117,34 @@ class RandomPatternTest extends TestCase
         $this->assertFalse($result);
     }
 
+    public function testGenerateDigitsForOneDigit()
+    {
+        $pattern = 'D';
+
+        $randomPattern = new RandomPattern($pattern);
+        $result = $randomPattern->generate($pattern);
+
+        $this->assertNotEquals('', $result);
+
+        preg_match('/([0-9])/', $result, $matches);
+
+        $this->assertTrue(isset($matches[1]));
+        $this->assertGreaterThanOrEqual(0, $matches[1]);
+        $this->assertLessThanOrEqual(9, $matches[1]);
+    }
+
+    public function testGenerateDigitsForTwoDigits()
+    {
+        $pattern = 'DD';
+
+        $randomPattern = new RandomPattern($pattern);
+        $result = $randomPattern->generate($pattern);
+
+        $this->assertNotEquals('', $result);
+
+        preg_match('/([0-9]{2})/', $result, $matches);
+
+        $this->assertTrue(isset($matches[1]));
+    }
+
 }
