@@ -1,0 +1,29 @@
+{
+    "name": "andrewwoods/random-pattern",
+    "description": "Generate a random value according to a pattern",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrew Woods",
+            "email": "andrew@awoods.net"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Awoods\\RandomPattern\\": "src/"
+        }
+    },
+
+    "require": {
+        "php": ">=7.3.0"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master",
+        "squizlabs/php_codesniffer": "^3.6",
+        "friendsofphp/php-cs-fixer": "^2.18",
+        "phpstan/phpstan": "^0.12.83",
+        "phpmd/phpmd": "^2.9",
+        "phpunit/phpunit": "^9.5"
+    }
+}
