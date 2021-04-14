@@ -7,9 +7,8 @@ namespace Awoods\RandomPattern;
 class RandomPattern
 {
 
-    protected $pattern = '';
 
-    public function __construct($pattern)
+    public function __construct()
     {
     }
 

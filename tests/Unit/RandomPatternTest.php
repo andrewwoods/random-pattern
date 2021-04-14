@@ -10,17 +10,16 @@ class RandomPatternTest extends TestCase
 
     public function testRandomPatternConstruct()
     {
-        $obj = new RandomPattern('');
+        $obj = new RandomPattern();
 
         $this->assertEquals('Awoods\RandomPattern\RandomPattern', get_class($obj));
     }
 
     public function testIsTokenValidWithInvalidCharacter()
     {
-        $pattern = '';
         $token = 'Z';
 
-        $randomPattern = new RandomPattern($pattern);
+        $randomPattern = new RandomPattern();
         $result = $randomPattern->isTokenValid($token);
 
         $this->assertFalse($result);
@@ -28,10 +27,9 @@ class RandomPatternTest extends TestCase
 
     public function testIsTokenValidWithCharacterA()
     {
-        $pattern = '';
         $token = 'A';
 
-        $randomPattern = new RandomPattern($pattern);
+        $randomPattern = new RandomPattern();
         $result = $randomPattern->isTokenValid($token);
 
         $this->assertTrue($result);
@@ -39,10 +37,9 @@ class RandomPatternTest extends TestCase
 
     public function testIsTokenValidWithCharacterC()
     {
-        $pattern = '';
         $token = 'C';
 
-        $randomPattern = new RandomPattern($pattern);
+        $randomPattern = new RandomPattern();
         $result = $randomPattern->isTokenValid($token);
 
         $this->assertTrue($result);
@@ -50,10 +47,9 @@ class RandomPatternTest extends TestCase
 
     public function testIsTokenValidWithCharacterD()
     {
-        $pattern = '';
         $token = 'D';
 
-        $randomPattern = new RandomPattern($pattern);
+        $randomPattern = new RandomPattern();
         $result = $randomPattern->isTokenValid($token);
 
         $this->assertTrue($result);
@@ -61,10 +57,9 @@ class RandomPatternTest extends TestCase
 
     public function testIsTokenValidWithCharacterX()
     {
-        $pattern = '';
         $token = 'X';
 
-        $randomPattern = new RandomPattern($pattern);
+        $randomPattern = new RandomPattern();
         $result = $randomPattern->isTokenValid($token);
 
         $this->assertTrue($result);
@@ -74,7 +69,7 @@ class RandomPatternTest extends TestCase
     {
         $pattern = '';
 
-        $randomPattern = new RandomPattern($pattern);
+        $randomPattern = new RandomPattern();
         $result = $randomPattern->isPatternValid($pattern);
 
         $this->assertFalse($result);
@@ -84,14 +79,14 @@ class RandomPatternTest extends TestCase
     {
         $pattern = 'A';
 
-        $randomPattern = new RandomPattern($pattern);
+        $randomPattern = new RandomPattern();
         $result = $randomPattern->isPatternValid($pattern);
 
         $this->assertTrue($result);
 
         $pattern = 'Z';
 
-        $randomPattern = new RandomPattern($pattern);
+        $randomPattern = new RandomPattern();
         $result = $randomPattern->isPatternValid($pattern);
 
         $this->assertFalse($result);
@@ -101,7 +96,7 @@ class RandomPatternTest extends TestCase
     {
         $pattern = 'AA';
 
-        $randomPattern = new RandomPattern($pattern);
+        $randomPattern = new RandomPattern();
         $result = $randomPattern->isPatternValid($pattern);
 
         $this->assertTrue($result);
@@ -111,7 +106,7 @@ class RandomPatternTest extends TestCase
     {
         $pattern = 'FOG';
 
-        $randomPattern = new RandomPattern($pattern);
+        $randomPattern = new RandomPattern();
         $result = $randomPattern->isPatternValid($pattern);
 
         $this->assertFalse($result);
@@ -121,7 +116,7 @@ class RandomPatternTest extends TestCase
     {
         $pattern = 'D';
 
-        $randomPattern = new RandomPattern($pattern);
+        $randomPattern = new RandomPattern();
         $result = $randomPattern->generate($pattern);
 
         $this->assertNotEquals('', $result);
@@ -137,7 +132,7 @@ class RandomPatternTest extends TestCase
     {
         $pattern = 'DD';
 
-        $randomPattern = new RandomPattern($pattern);
+        $randomPattern = new RandomPattern();
         $result = $randomPattern->generate($pattern);
 
         $this->assertNotEquals('', $result);
