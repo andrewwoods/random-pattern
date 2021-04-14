@@ -142,4 +142,60 @@ class RandomPatternTest extends TestCase
         $this->assertTrue(isset($matches[1]));
     }
 
+    public function testGenerateAlphbeticValueForOneCharacter()
+    {
+        $pattern = 'A';
+
+        $randomPattern = new RandomPattern();
+        $result = $randomPattern->generate($pattern);
+
+        $this->assertNotEquals('', $result);
+
+        preg_match('/([A-Z]{1})/', $result, $matches);
+
+        $this->assertTrue(isset($matches[1]));
+    }
+
+    public function testGenerateAlphbeticValueForTwoCharacters()
+    {
+        $pattern = 'AA';
+
+        $randomPattern = new RandomPattern();
+        $result = $randomPattern->generate($pattern);
+
+        $this->assertNotEquals('', $result);
+
+        preg_match('/([A-Z]{2})/', $result, $matches);
+
+        $this->assertTrue(isset($matches[1]));
+    }
+
+    public function testGenerateAlphbeticValueForEightCharacters()
+    {
+        $pattern = 'AAAAAAAA';
+
+        $randomPattern = new RandomPattern();
+        $result = $randomPattern->generate($pattern);
+
+        $this->assertNotEquals('', $result);
+
+        preg_match('/([A-Z]{8})/', $result, $matches);
+
+        $this->assertTrue(isset($matches[1]));
+    }
+
+    public function testGenerateAlphbeticDigitComboForEightCharacters()
+    {
+        $pattern = 'ADADADDA';
+
+        $randomPattern = new RandomPattern();
+        $result = $randomPattern->generate($pattern);
+
+        $this->assertNotEquals('', $result);
+
+        preg_match('/([A-Z][0-9][A-Z][0-9][A-Z][0-9][0-9][A-Z])/', $result, $matches);
+
+        $this->assertTrue(isset($matches[1]));
+    }
+
 }

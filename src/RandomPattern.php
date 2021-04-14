@@ -7,9 +7,11 @@ namespace Awoods\RandomPattern;
 class RandomPattern
 {
 
+    protected $alpha = [];
 
     public function __construct()
     {
+        $this->alpha = range('A', 'Z');
     }
 
     /**
@@ -96,6 +98,9 @@ class RandomPattern
 
         $tokens = str_split($pattern);
         foreach ($tokens as $token) {
+            if ($token === 'A') {
+                $output .= $this->generateAlphabetic();
+            }
             if ($token === 'D') {
                 $output .= $this->generateDigit();
             }
@@ -111,6 +116,21 @@ class RandomPattern
     public function generateDigit(): int
     {
         return random_int(0, 9);
+    }
+
+    /**
+     * Selected a random alphabetic character
+     *
+     * @return string
+     * @throws \Exception
+     */
+    public function generateAlphabetic(): string
+    {
+        $max = count($this->alpha) - 1;
+
+        $index = random_int(0, $max);
+
+        return $this->alpha[$index];
     }
 
 }
