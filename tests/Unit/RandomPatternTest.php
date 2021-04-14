@@ -209,10 +209,9 @@ class RandomPatternTest extends TestCase
 
         $randomPattern = new RandomPattern();
         $result = $randomPattern->generate($pattern);
-        error_log('result=' . $result);
+
         $this->assertNotEquals('', $result);
         preg_match('/([A-Z][AC-HJ-RT-Z][0-9][0-9][AC-HJ-RT-Z][A-Z])/', $result, $matches);
-        error_log('matches=' . print_r($matches, true));
 
         $this->assertTrue(isset($matches[1]));
     }
