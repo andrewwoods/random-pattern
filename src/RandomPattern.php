@@ -4,12 +4,13 @@
 namespace Awoods\RandomPattern;
 
 
-
-class RandomPattern {
+class RandomPattern
+{
 
     protected $pattern = '';
 
-    public function __construct($pattern) {
+    public function __construct($pattern)
+    {
     }
 
     /**
@@ -29,7 +30,8 @@ class RandomPattern {
      *
      * @return bool
      */
-    public function isTokenValid($token) : bool {
+    public function isTokenValid($token): bool
+    {
         if ($token === 'A') {
             return true;
         }
