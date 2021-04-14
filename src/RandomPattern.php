@@ -8,10 +8,12 @@ class RandomPattern
 {
 
     protected $alpha = [];
+    protected $clarified = [];
 
     public function __construct()
     {
         $this->alpha = range('A', 'Z');
+        $this->clarified = array_merge(array_diff($this->alpha, ['B', 'I', 'S']));
     }
 
     /**
@@ -101,6 +103,9 @@ class RandomPattern
             if ($token === 'A') {
                 $output .= $this->generateAlphabetic();
             }
+            if ($token === 'C') {
+                $output .= $this->generateClarified();
+            }
             if ($token === 'D') {
                 $output .= $this->generateDigit();
             }
@@ -131,6 +136,23 @@ class RandomPattern
         $index = random_int(0, $max);
 
         return $this->alpha[$index];
+    }
+
+    /**
+     * Selected a random clarified alphabetic character
+     *
+     * @return string
+     * @throws \Exception
+     */
+    public function generateClarified(): string
+    {
+        $max = count($this->clarified) - 1;
+
+        $index = random_int(0, $max);
+
+        error_log('clarified index=' . print_r($index, true));
+        error_log('clarified=' . print_r($this->clarified, true));
+        return $this->clarified[$index];
     }
 
 }
