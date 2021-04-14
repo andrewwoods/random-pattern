@@ -70,4 +70,51 @@ class RandomPatternTest extends TestCase
         $this->assertTrue($result);
     }
 
+    public function testIsPatternValidWithOCharacters()
+    {
+        $pattern = '';
+
+        $randomPattern = new RandomPattern($pattern);
+        $result = $randomPattern->isPatternValid($pattern);
+
+        $this->assertFalse($result);
+    }
+
+    public function testIsPatternValidWith1Character()
+    {
+        $pattern = 'A';
+
+        $randomPattern = new RandomPattern($pattern);
+        $result = $randomPattern->isPatternValid($pattern);
+
+        $this->assertTrue($result);
+
+        $pattern = 'Z';
+
+        $randomPattern = new RandomPattern($pattern);
+        $result = $randomPattern->isPatternValid($pattern);
+
+        $this->assertFalse($result);
+    }
+
+    public function testIsPatternValidWith2Characters()
+    {
+        $pattern = 'AA';
+
+        $randomPattern = new RandomPattern($pattern);
+        $result = $randomPattern->isPatternValid($pattern);
+
+        $this->assertTrue($result);
+    }
+
+    public function testIsPatternValidWithAllBadCharacters()
+    {
+        $pattern = 'FOG';
+
+        $randomPattern = new RandomPattern($pattern);
+        $result = $randomPattern->isPatternValid($pattern);
+
+        $this->assertFalse($result);
+    }
+
 }

@@ -49,4 +49,28 @@ class RandomPattern {
         return false;
     }
 
+    /**
+     * Check that the pattern only contains valid characters
+     *
+     * @param $pattern
+     *
+     * @return bool
+     */
+    public function isPatternValid($pattern): bool
+    {
+        $pattern = trim($pattern);
+        if (strlen($pattern) === 0) {
+            return false;
+        }
+
+        $tokens = str_split($pattern);
+        foreach ($tokens as $token) {
+            if ( ! $this->isTokenValid($token)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 }
